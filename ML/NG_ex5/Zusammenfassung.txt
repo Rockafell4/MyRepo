@@ -1,0 +1,98 @@
+Dieses Kapitel beschätigt sich mit Tricks & Tipps für die Anwendung von Machine Learning!
+
+Gehen wir davon aus, dass wir einen Algorithmus angewendet haben, mit niedriger Fehlerquote.
+Allerdings fällt jetzt auf, bei der Anwendung auf neuen Beispielen, sind die Prognosen mit großen
+Fehlern behaftet. (Sehr üblich in der Praxis!)
+Wie ist vorzugehen ? Was sind gängige Methoden herauszufinden, an welchen Stellen man am Besten
+nachforschen sollte ?
+
+____________________________________________________________________________________________
+
+Im Allgemeinen stehen folgende Möglichkeiten zur Verfügung:
+
+	- Anzahl der Beispieldaten erhöhen!
+	- Anzahl der Features evtl. reduzieren
+	- Anzahl der Features evtl. erhöhen
+	- Verwendung von polynomen Features
+	- Erhöhung/Senkung des Wertes von Lambda
+
+Es ist sehr wichtig herausfinden, welche der Möglichkeiten verwendeten werden sollen!
+Üblicherweise denken sich die Entwickler und Anwender, die Anzahl der Beispieldaten zu erhöhen
+mit der Hoffnung, dass der Algorithmus sich dann schon verbessern wird.
+Das ist aber oft nicht der Fall, und anstatt einen Großteil seiner Zeit damit zu verbringen, die Daten 
+zu erhöhen. => Diagnose ist sehr nützlich, trotz zeitaufwändigkeit
+
+____________________________________________________________________________________________
+
+Evaluating a Hypothesis
+
+Bei eindimensionalen Problemstellungen ist es einfach herauszufinden, was das Problem ist 
+(Underfitting/Overfitting), in dem man einen Graphen ausgibt. Allerdings hat man es meistens
+mit mehrdimensionalen Features zu tun.
+
+Üblicherweise werden die Beispieldaten aufgeteilt in 70% Trainingset und 30% Testset.
+Wenn das Trainingset overfitten würde, dann wären die Kosten J_train sehr niedrig und
+die Kosten J_test sehr hoch.
+Wichtig ist, dass wenn die Daten eine bestimmte Ordnung haben, dann sollten sie zufällig gewählt werden
+(s. letzte 2 Folien für die Berechnung bei Lineare Regression und Logistische Regression)
+
+____________________________________________________________________________________________
+
+Model Selection and training/validation/test sets
+
+Das Problem der berechneten Thetas auf Basis von Trainingsdaten ist, dass sie evtl.
+nur für die Trainingsdaten geeignet sind (overfitting). Das heißt die Kosten (Error) alleine
+sagen nicht viel darüber aus, ob es sich um eine gute Hypothese handelt oder nicht (egal ob niedrig).
+
+Gehen wir von dem Fall aus, dass man ein geeignetes Hypothese erstellen will.
+Der Aufbau kann linear sein oder verschiedengradig hohe Polynome. 
+Hinzu kommt nun, dass neben den Thetas ein weiterer Parameter gesucht wird -> d = degree of polynomial.
+Wie hoch soll der Grad des Polynoms sein ?
+
+Vorgehensweise:
+Die Kostenfunktion auf Basis des Trainingset zu generieren für die verschiedenen Hypothesen.
+Dabei generiert man auch Thetas. Diese Thetas werden zusätzliche auf das Testset angewendet.
+(Beispiel: bis zum 10. Polynom soll Hypothese generiert werden, d.h. man hat 
+10x J_train und 10x J_test und für jeden der 10 Kosten jeweilige Thetas) 
+Welche Theta wird ausgewählt ?
+Das Theta bei dem J_test(!!) am niedrigsten ist! 
+Problem:
+Bei dieser Vorgehensweise wird der Parameter d so ausgewählt, dass sie besser geeignet sind für das
+Testset und somit die Prognosen auch besser für das Testset ausfallen
+(J_test(Theta) is likely to be an optimistic estimate of generalization error. I.e. our extra
+parameter (d=degree of polynomial) is fit to test set)
+
+Lösung:
+Aufteilung der Beispieldaten in: 60% Trainingset, 20% Cross Validation Set, 20% Testset
+Selbe Vorgehensweise, aber Hypothese mit dem geringsten Kosten der Cross_Validation (J_cv)
+Das gibt uns die Möglichkeit das Testset nun zu testen ohne, dass das Polynom zu Gunsten des
+Testset gewählt wird!
+(D.h. An Extra parameter (d) has been fit to the cross validation set and therefor we might
+generally expect J_cv to be lower than J_test)
+
+____________________________________________________________________________________________
+
+Diagnosing bias vs. variance
+
+Um Problemen besser entgegenzuwirken, ist es von Vorteil zunächst festzustellen ob evtl.
+high bias oder high variance die Ursache sein könnten.
+
+Wenn wir die Kosten in Abhängigkeit von d (= degree of polynomial) plotten, ist es üblich,
+dass J_train verlaufsmäßig weiter oben anfängt und  immer niedriger wird. 
+J_cv (oder J_test) hat einen ähnlichen Verlauf bis zu einem bestimmten d, 
+und fängt dann an höher zu werden (Übergang zum Bereich des Overfitting)
+
+High Bias: J_cv (oder J_test) UND J_train sind hoch
+High Variance: J_train << J_cv (oder J_test)
+
+____________________________________________________________________________________________
+
+
+Regularization and Bias/Variance
+(How does the regularization effect the bias and variance)
+
+
+
+
+
+

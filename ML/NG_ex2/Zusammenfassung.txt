@@ -1,0 +1,39 @@
+In Aufgabe 2 wurden folgende Bereiche abgedeckt:
+
+- Logistische Regression
+- Decision Boundaries
+	- linear
+	- non-linear
+	- plotten
+
+Algorithmische Besonderheiten
+
+- Plotten von Decision Boundaries
+	- noch etwas unklar
+	  Verwendung von contours bei non-linear
+
+- advanced learning Algorithmus
+	- fminunc
+	  -> options zuerst einstellen
+	     options = optimset('GradObj','on','MaxIter',400);
+	     Parameter 1: Es wird eine Funktion die grad und Kostenfunktion zur Verfügung stellt
+	     Parameter 2: es soll maximal 400x durchlaufen werden
+	  -> [optTheta, functionalVal, exitFlag] = fminunc...
+	         (@(t)(costFunctionLogistic(t,X,y,lambda)),init_theta, options)
+	     t: Teil des Algorithmus
+	     exitFlag gibt an ob der Algorithmus meint das Minimum erreicht zu haben oder nicht
+	     functionalVal: den Wert den es im Minimum berechnen konnte (hoffentlich 0)
+	     für weitere Infos: "type fminunc.m"
+
+Probleme beim eigenen Skript:
+
+- Normalizing features hat nicht funktioniert
+	- Ursache: plotDecisionBoundary hat normalized Graphen eingezeichnet
+	- Lösung: vorher bereits un-normalizen
+
+zusätzliche Threads:
+- weitere Quellen für Lernen/Recherchieren etc.
+	-> https://class.coursera.org/ml-006/forum/thread?thread_id=1741
+	-> https://class.coursera.org/ml-006/forum/thread?thread_id=2854
+
+

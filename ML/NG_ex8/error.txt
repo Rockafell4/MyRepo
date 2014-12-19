@@ -1,0 +1,7 @@
+There is an error in ex8_cofi.m. For those interested in getting realistic movie ratings, please make the following correction:
+
+In ex8_cofi.m, in the section "Part 7 : Learning Movie Ratings", around line 200, the value of theta is set by calling fmincg() using cofiCostFunction(). That call to cofiCostFunction() should use Ynorm, not Y.
+
+Without making this correction, the movie ratings that are predicted can have a rating greater than "5 stars", which makes no sense if we're using a 5-point scale. 
+
+This error was present in the course materials used to create Figure 4 in ex8.pdf.

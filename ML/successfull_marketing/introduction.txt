@@ -1,0 +1,29 @@
+Sucessfull Marketing
+
+#
+# Exercise for comparing Logistic Regression & Gaussian Descriminant Analysis Model
+#
+
+starting position:
+http://logisticregressionanalysis.com/303-what-a-logistic-regression-data-set-looks-like-an-example/
+Company XY wants to send the right advertisement to the customer
+	- more efficiency & less costs
+	- more revenue
+
+data.csv:
+Here are the variables that Company XY has on each customer from third-party sources:
+Buy: Magazine Bought (1) or not (0)
+Household Income (Income; rounded to the nearest $1,000.00)
+Gender (IsFemale = 1 if the person is female, 0 otherwise)
+Marital Status (IsMarried = 1 if married, 0 otherwise)
+College Educated (HasCollege = 1 if has one or more years of college education, 0 otherwise)
+Employed in a Profession (IsProfessional = 1 if employed in a profession, 0 otherwise)
+Retired (IsRetired = 1 if retired, 0 otherwise)
+Not employed (Unemployed = 1 if not employed,  0 otherwise)
+Length of Residency in Current City (ResLength; in years)
+Dual Income if Married (Dual = 1 if dual income, 0 otherwise)
+Children (Minors = 1 if children under 18 are in the household, 0 otherwise)
+Home ownership (Own = 1 if own residence, 0 otherwise)
+Resident type (House = 1 if residence is a single family house, 0 otherwise)
+Race (White = 1 if race is white, 0 otherwise)
+Language (English = 1 is the primary language in the household is English, 0 otherwise)

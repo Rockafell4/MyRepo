@@ -1,0 +1,52 @@
+In Aufgabe 1 wurden folgende ML-Tools angewendet
+
+- Lineare Regression mit einer Variable
+- Lineare Regression mit mehreren Variablen
+- Batch-Gradient-Descent
+- Normalisieren
+
+Algorithmische Besonderheiten
+
+- Plots
+	- Surface (3D Modell des J-Funktion):
+	  Verwendung von linspace für die Intervallauswahl bei der Darstellung
+	- Contour (Minimum dargestellt)
+	  Verwendung von logspace für die Intervallauswahl bei der Darstellung
+
+
+Probleme beim eigenen Skript:
+
+- Kostenfunktion zeigt dauernd NaN an (bei eigenen Daten)
+	- Ursache: Zahlen werden meistens zu groß!
+	- Lösung: - Verschiedene Alpha Rates ausprobieren und 
+		  - J in Abhängigkeit der Iterations plotten
+		  oder:
+		  - in diesem Fall waren die x- und y- Angaben zu groß und beide geteilt
+
+- komische Punktverbindung beim Plotten polydimensionaler Funktion mit einer Variablen
+	- Ursache: (Vermutung) Punkte müssen in bestimmter Anordnung gegeben sein, damit sie nicht kreuz
+		   und quer miteinander verbunden werden
+	- Lösung: plotFit in Ex.5 ?
+
+zusätzliche interessante Threads:
+
+Verwendung einer adaptive learning rate alpha:
+https://class.coursera.org/ml-006/forum/thread?thread_id=289
++ keine selbstständige Wahl von Alpha
++ effizienter
+
+Welche Rolle spielt Zeit in der linearen Regression ? (bezogen auf Stocks)
+https://class.coursera.org/ml-006/forum/thread?thread_id=1231
+- Lineare Regression ist nicht geeignet für Prognosen außerhalb der bekannten Datensätze
+  Linear Regression is great at modeling a set of known data
+
+- Da die Datensätze in Abhängigkeit von einander sind (Der Preis von heute hängt zusammen mit dem
+  Preis von gestern des jeweiligen Stock) ist lineare Regression nicht geeignet
+
+-> Econometrics it is "the quantitative analysis of actual economic phenomena based on the concurrent development of
+   theory and obersavtion, related by appropriate methods of inference"
+	-> Econometrics "Bruce E. Hansen" - University of Wisconsin
+	   http://www.ssc.wisc.edu/~bhansen/econometrics/
+	-> IRC #economics ; #econometrics on freenode
+-> Lecture 35 - The Analysis of Time Series: https://www.youtube.com/watch?v=zlZaOnBbpUg
+	-> 
